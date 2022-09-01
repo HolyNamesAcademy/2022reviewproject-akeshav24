@@ -61,16 +61,13 @@ public class BankAccountManager {
 
     /**
      * Returns a string representation of a BankAccount object. The string looks like this:
-     * 
      *      Name: Serena Williams
      *      Account Balance: 1000000.00
-     * 
-     * @return String
      */
     public static void PrintAccountInfo(BankAccount account)
     {
 
         // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        System.out.println("Name: "+account.GetName()+"\n Account Balance: "+account.GetBalance());
     }
 }
