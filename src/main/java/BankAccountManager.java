@@ -41,7 +41,7 @@ public class BankAccountManager {
                     double withdrawalAmount = input.nextDouble();
                     bankAccount.Withdraw(withdrawalAmount);
                     break;
-                case "addinterest":
+                case "add interest":
                     int numYears = input.nextInt();
                     double interestRate = input.nextDouble();
                     bankAccount.AddInterest(numYears, interestRate);
