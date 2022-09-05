@@ -215,9 +215,23 @@ String numberList = "";
      * @return A string that lists the team number followed by each team.
      */
     public static String GetTeamsString(ArrayList<ArrayList<Student>> teams) {
-
+        String str="";
+        for(int t=0; t<teams.size(); t++)
+        {
+            str+=teams.get(t)+": ";
+            for(int s=0; s<teams.get(t).size(); s++)
+            {
+                str+=teams.get(t).get(s);
+                if(s<teams.get(t).size()-1)
+                {
+                    str+=", ";
+                }
+                str+="\n";
+            }
+        }
+        return str;
         // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+
     }
 
     /**
@@ -230,7 +244,13 @@ String numberList = "";
     public static void UpdateFavoriteColor(ArrayList<Student> students, String name, String newFavoriteColor) {
 
         // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for(int i=0; i<students.size(); i++)
+        {
+            if(students.get(i).GetName().equals(name))
+            {
+                students.get(i).SetFavoriteColor(newFavoriteColor);
+            }
+        }
     }
 
     /**
@@ -242,8 +262,16 @@ String numberList = "";
      */
     public static ArrayList<Student> GetStudentsInGradeLevel(ArrayList<Student> students, int gradeLevel) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+
+        ArrayList<Student>grades= new ArrayList<Student>();
+        for(int i=0; i<students.size(); i++)
+        {
+            if(students.get(i).GetGradeLevel()==gradeLevel)
+            {
+                grades.add(students.get(i));
+            }
+        }
+        return grades;
     }
 
     /**
@@ -258,8 +286,27 @@ String numberList = "";
      */
     public static boolean TransferMoney(ArrayList<Student> students, String fromStudentName, String toStudentName, double amount) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        boolean transfer=false;
+        Student student1=students.get(0);
+        Student student2=students.get(1);
+        for(int i=0; i<students.size(); i++)
+        {
+            if(students.get(i).GetName().equals(fromStudentName))
+            {
+                student1=students.get(i);
+            }
+            else if(students.get(i).GetName().equals(toStudentName))
+            {
+                student2=students.get(i);
+            }
+        }
+        if(student1.GetBankAccount().GetBalance()>=amount)
+        {
+            student1.GetBankAccount().Withdraw(amount);
+            student2.GetBankAccount().Deposit(amount);
+            transfer=true;
+        }
+        return transfer;
     }
 
     /**
@@ -270,8 +317,15 @@ String numberList = "";
      */
     public static void UpdateGradeLevels(ArrayList<Student> students) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for(int i=students.size()-1; i>=0; i--)
+        {
+            if(students.get(i).GetGradeLevel()==12)
+            {
+                students.remove(i);
+            }
+            else
+                students.get(i).SetGradeLevel(students.get(i).GetGradeLevel()+1);
+        }
     }
 
     /**
@@ -284,7 +338,35 @@ String numberList = "";
      */
     public static void SortByGradeAndName(ArrayList<Student> students) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for(int i=0; i<students.size()-1; i++)
+        {
+            int minIndex=findMinimumGrade(students, i);
+            if(minIndex!=i)
+            {
+                swap(students, i, minIndex);
+            }
+        }
     }
+    public static int findMinimumGrade(ArrayList<Student> students, int first)
+    {  int minIndex=first;
+        for(int i=first+1; i<students.size(); i++)
+        {
+            if(students.get(i).GetGradeLevel()<students.get(first).GetGradeLevel())
+            {
+                minIndex=i;
+            }
+            else if(students.get(i).GetGradeLevel()==students.get(first).GetGradeLevel() && students.get(i).GetName().compareTo(students.get(first).GetName())<0)
+            {
+                minIndex=i;
+            }
+        }
+        return minIndex;
+    }
+    public static void swap(ArrayList<Student>students, int x, int y)
+    {
+        Student temp=students.get(x);
+        students.set(x, students.get(y));
+        students.set(y, temp);
+    }
+
 }
