@@ -123,9 +123,15 @@ String numberList = "";
      * @return The first student whose favorite color is the one specified.
      */
     public static Student GetFirstStudentWithFavoriteColor(ArrayList<Student> students, String color) {
+        for(int i=0; i<students.size(); i++)
+        {
+            if(students.get(i).GetFavoriteColor().equals(color))
+            {
+                return students.get(i);
+            }
+        }
+        return null;
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
     }
 
     /**
@@ -137,8 +143,17 @@ String numberList = "";
      */
     public static String GetFavoriteColorOfStudent(ArrayList<Student> students, String name) {
 
+        String color="";
+        for(int i=0; i<students.size(); i++)
+        {
+            if(students.get(i).GetName().equals(name))
+            {
+                color=students.get(i).GetFavoriteColor();
+                return color;
+            }
+        }
+        return color;
         // write your code above and remove the line below
-        throw new UnsupportedOperationException();
     }
 
     /**
@@ -150,7 +165,18 @@ String numberList = "";
     public static Student GetTallestStudent(ArrayList<Student> students) {
 
         // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        int maxHeight=students.get(0).GetHeight();
+        Student s=students.get(0);
+        for(int i=0; i<students.size(); i++)
+        {
+            if(students.get(i).GetHeight()>maxHeight)
+            {
+                maxHeight=students.get(i).GetHeight();
+                s=students.get(i);
+            }
+        }
+        return s;
+
     }
 
     /**
@@ -166,9 +192,14 @@ String numberList = "";
      * @return List of Student objects.
      */
     public static ArrayList<Student> CreateStudentArray(ArrayList<String> names, ArrayList<Integer> heights, ArrayList<Integer> gradeLevels, ArrayList<String> favoriteColors, ArrayList<BankAccount> bankAccounts) {
-
+        ArrayList<Student>students= new ArrayList<Student>();
+        for(int i=0; i<names.size();i++)
+        {
+            students.add(new Student(names.get(i), heights.get(i), gradeLevels.get(i),favoriteColors.get(i),bankAccounts.get(i)));
+        }
+        return students;
         // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+
     }
 
     /**
