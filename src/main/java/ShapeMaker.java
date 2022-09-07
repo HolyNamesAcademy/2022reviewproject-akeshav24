@@ -13,8 +13,16 @@ public class ShapeMaker {
      * @return a string that looks like the shape above when printed
      */
     public static String PrintSquare(int size)
-    {
-        return "";
+    { String str="";
+        for(int r=0;r<size; r++)
+        {
+            for(int c=0; c<size; c++)
+            {
+                str+="* ";
+            }
+            str+="\n";
+        }
+        return str;
     }
 
     /**
@@ -31,8 +39,16 @@ public class ShapeMaker {
      */
     public static String PrintRectangle(int length, int height)
     {
-        // write your code here
-        return "";
+        String str="";
+        for(int r=0; r<height; r++)
+        {
+            for(int c=0; c<length; c++)
+            {
+                str+="* ";
+            }
+            str+="\n";
+        }
+        return str;
     }
 
     /**
@@ -49,8 +65,16 @@ public class ShapeMaker {
      */
     public static String PrintRightTriangle(int height)
     {
-        // write your code here
-        return "";
+        String str="";
+        for(int r=0; r<height; r++)
+        {
+            for(int c=0; c<=r; c++)
+            {
+                str+="* ";
+            }
+            str+="\n";
+        }
+        return str;
     }
 
     /**
@@ -66,9 +90,16 @@ public class ShapeMaker {
      * @return a string that looks like the shape above when printed
      */
     public static String PrintInvertedRightTriangle(int height)
-    {
-        // write your code here
-        return "";
+    {   String str="";
+        for(int r=height; r>0; r--)
+        {
+            for(int c=r; c>0; c--)
+            {
+                str+="* ";
+            }
+            str+="\n";
+        }
+        return str;
     }
 
     /**
@@ -86,8 +117,8 @@ public class ShapeMaker {
 
     public static String PrintBackwardsRightTriangle(int height)
     {
-        // write your code here
-        return "";
+        String str="";
+        return str;
     }
 
     /**
