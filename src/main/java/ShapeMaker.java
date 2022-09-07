@@ -135,7 +135,21 @@ public class ShapeMaker {
      */
     public static String PrintEquilateralTriangle(int height)
     {
-        // write your code here
-        return "";
+        String str="";
+        int count=4;
+        for(int r=0; r<height; r++)
+        {
+            for(int c=r; c<height-1;c++)
+            {
+                str+= " ";
+            }
+            for(int x=count; x<height; x++)
+            {
+                str+="* ";
+            }
+            count--;
+            str+="\n";
+        }
+        return str;
     }
 }
