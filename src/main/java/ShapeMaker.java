@@ -118,6 +118,18 @@ public class ShapeMaker {
     public static String PrintBackwardsRightTriangle(int height)
     {
         String str="";
+        for(int i=0; i<height; i++)
+        {
+            for(int j=1; j<height-i; j++)
+            {
+                str+="  ";
+            }
+            for(int k=0; k<=i; k++)
+            {
+                str+="* ";
+            }
+            str+="\n";
+        }
         return str;
     }
 

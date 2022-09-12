@@ -110,6 +110,7 @@ public class BankAccount {
             System.out.println("Sorry, the interest rate must be greater than 0.");
             return 0;
         }
+        Deposit(accountBalance*numYears*interestRate);
         return accountBalance*numYears*interestRate;
         // write your code above and remove the line below
     }
