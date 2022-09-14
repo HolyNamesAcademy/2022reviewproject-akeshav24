@@ -148,18 +148,18 @@ public class ShapeMaker {
     public static String PrintEquilateralTriangle(int height)
     {
         String str="";
-        int count=4;
+        int count=0;
         for(int r=0; r<height; r++)
-        {
+        {   count=0;
             for(int c=r; c<height-1;c++)
             {
                 str+= " ";
+                count++;
             }
-            for(int x=count; x<height; x++)
+            for(int x=0; x<height-count; x++)
             {
                 str+="* ";
             }
-            count--;
             str+="\n";
         }
         return str;
