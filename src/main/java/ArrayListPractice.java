@@ -218,16 +218,16 @@ String numberList = "";
         String str="";
         for(int t=0; t<teams.size(); t++)
         {
-            str+=teams.get(t)+": ";
+            str+="Team "+(t+1)+": ";
             for(int s=0; s<teams.get(t).size(); s++)
             {
-                str+=teams.get(t).get(s);
+                str+=teams.get(t).get(s).GetName();
                 if(s<teams.get(t).size()-1)
                 {
                     str+=", ";
                 }
-                str+="\n";
             }
+            str+="\n";
         }
         return str;
         // write your code above and remove the line below
@@ -287,24 +287,30 @@ String numberList = "";
     public static boolean TransferMoney(ArrayList<Student> students, String fromStudentName, String toStudentName, double amount) {
 
         boolean transfer=false;
-        Student student1=students.get(0);
-        Student student2=students.get(1);
+        Student student1=null;
+        Student student2=null;
+        boolean s1=false;
+        boolean s2=false;
         for(int i=0; i<students.size(); i++)
         {
             if(students.get(i).GetName().equals(fromStudentName))
             {
                 student1=students.get(i);
+                s1=true;
             }
             else if(students.get(i).GetName().equals(toStudentName))
             {
                 student2=students.get(i);
+                s2=true;
             }
         }
-        if(student1.GetBankAccount().GetBalance()>=amount)
-        {
-            student1.GetBankAccount().Withdraw(amount);
-            student2.GetBankAccount().Deposit(amount);
-            transfer=true;
+        if(s1 && s2) {
+            if (student1.GetBankAccount().GetBalance() >= amount && amount>0 && student1.GetBankAccount().GetBalance()>=0) {
+                student1.GetBankAccount().Withdraw(amount);
+                student2.GetBankAccount().Deposit(amount);
+                transfer = true;
+            }
+
         }
         return transfer;
     }
