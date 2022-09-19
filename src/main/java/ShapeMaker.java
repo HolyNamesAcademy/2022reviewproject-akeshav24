@@ -18,7 +18,11 @@ public class ShapeMaker {
         {
             for(int c=0; c<size; c++)
             {
-                str+="* ";
+                str+="*";
+                if(c+1<size)
+                {
+                    str+=" ";
+                }
             }
             str+="\n";
         }
@@ -44,7 +48,11 @@ public class ShapeMaker {
         {
             for(int c=0; c<length; c++)
             {
-                str+="* ";
+                str+="*";
+                if(c+1<length)
+                {
+                    str+=" ";
+                }
             }
             str+="\n";
         }
@@ -70,7 +78,11 @@ public class ShapeMaker {
         {
             for(int c=0; c<=r; c++)
             {
-                str+="* ";
+                str+="*";
+                if(c+1<=r)
+                {
+                    str+=" ";
+                }
             }
             str+="\n";
         }
@@ -95,7 +107,11 @@ public class ShapeMaker {
         {
             for(int c=r; c>0; c--)
             {
-                str+="* ";
+                str+="*";
+                if(c-1>0)
+                {
+                    str+=" ";
+                }
             }
             str+="\n";
         }
@@ -126,7 +142,11 @@ public class ShapeMaker {
             }
             for(int k=0; k<=i; k++)
             {
-                str+="* ";
+                str+="*";
+                if(k+1<=i)
+                {
+                    str+=" ";
+                }
             }
             str+="\n";
         }
@@ -158,7 +178,11 @@ public class ShapeMaker {
             }
             for(int x=0; x<height-count; x++)
             {
-                str+="* ";
+                str+="*";
+                if(x+1<height-count)
+                {
+                    str+=" ";
+                }
             }
             str+="\n";
         }

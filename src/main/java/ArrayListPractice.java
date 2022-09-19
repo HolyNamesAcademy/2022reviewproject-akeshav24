@@ -357,11 +357,11 @@ String numberList = "";
     {  int minIndex=first;
         for(int i=first+1; i<students.size(); i++)
         {
-            if(students.get(i).GetGradeLevel()<students.get(first).GetGradeLevel())
+            if(students.get(i).GetGradeLevel()<students.get(minIndex).GetGradeLevel())
             {
                 minIndex=i;
             }
-            else if(students.get(i).GetGradeLevel()==students.get(first).GetGradeLevel() && students.get(i).GetName().compareTo(students.get(first).GetName())<0)
+            else if(students.get(i).GetGradeLevel()==students.get(minIndex).GetGradeLevel() && students.get(i).GetName().compareTo(students.get(minIndex).GetName())<0)
             {
                 minIndex=i;
             }
